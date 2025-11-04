@@ -1,0 +1,2 @@
+pkg:maven/foobar
+pkg:npm/foo/bar
