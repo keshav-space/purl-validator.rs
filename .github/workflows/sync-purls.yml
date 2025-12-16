@@ -30,6 +30,4 @@ jobs:
     uses: ./.github/workflows/collect-purls_template.yml
     with:
       ecosystem: ${{ matrix.ecosystem }}
-      path: "data/${{ matrix.ecosystem }}.txt"
-
-  
+      path: "fst_builder/data/${{ matrix.ecosystem }}.txt"
