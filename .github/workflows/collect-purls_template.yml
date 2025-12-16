@@ -53,6 +53,7 @@ jobs:
           dest="${{ inputs.path }}"
           git config user.name "AboutCode Automation"
           git config user.email "automation@aboutcode.org"
+          git pull
           mkdir -p "$(dirname "$dest")" && mv ../repos/${{ inputs.ecosystem }}.txt "$dest"
           git add -A
           git commit -m "$(echo -e "Sync latest ${{ inputs.ecosystem }} PURLs from FederatedCode\n\nSigned-off-by: AboutCode Automation <automation@aboutcode.org>")" || exit 0
