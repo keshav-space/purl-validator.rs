@@ -1,0 +1,35 @@
+name: Collect latest PURLs from FederatedCode
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  collect-purls:
+    strategy:
+      max-parallel: 1
+      matrix:
+        include:
+          - ecosystem: apk
+          - ecosystem: cargo
+          - ecosystem: composer
+          - ecosystem: conan
+          - ecosystem: cpan
+          - ecosystem: cran
+          - ecosystem: debain
+          - ecosystem: maven
+          - ecosystem: npm
+          - ecosystem: nuget
+          - ecosystem: pypi
+          - ecosystem: swift
+
+    uses: ./.github/workflows/collect-purls_template.yml
+    with:
+      ecosystem: ${{ matrix.ecosystem }}
+      path: "data/${{ matrix.ecosystem }}.txt"
+
+  
