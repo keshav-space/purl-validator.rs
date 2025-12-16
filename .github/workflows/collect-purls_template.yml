@@ -1,0 +1,59 @@
+name: Collect base PURLs for an ecosystem from AboutCode federated package metadata
+on:
+  workflow_call:
+    inputs:
+      ecosystem:
+        description: "Ecosystem for which to collect base PackageURLs (eg. npm)"
+        required: true
+        type: string
+      path:
+        description: "Path to store collected PURLs (eg. 'data/npm.txt')"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  clone-repos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update && sudo apt install -y gh
+
+      - name: Fetch repo list
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir ../repos && cd ../repos
+          gh repo list aboutcode-data --limit 20000 --json name \
+            --jq '.[] | select(.name | startswith("purls-${{ inputs.ecosystem }}")) | .name' \
+            > repos.txt
+
+      - name: Shallow clone repos
+        run: |
+          cd ../repos
+          cat repos.txt | xargs -n 1 -P 8 -I {} bash -c '
+            echo "Cloning {}"
+            git clone --depth 1 "https://github.com/aboutcode-data/{}.git"
+          '
+      - name: Extract base purl from purls.yml
+        run: |
+          cd ../repos
+          find . -type f -name "purls.yml" -exec sed -n '1{ s/^- *//; s/@.*//; p }' {} \; \
+          >  "${{ inputs.ecosystem }}.txt"
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Commit and push if it changed
+        run: |-
+          dest="${{ inputs.path }}"
+          git config user.name "AboutCode Automation"
+          git config user.email "automation@aboutcode.org"
+          mkdir -p "$(dirname "$dest")" && mv ../repos/${{ inputs.ecosystem }}.txt "$dest"
+          git add -A
+          git commit -m "$(echo -e "Sync latest ${{ inputs.ecosystem }} PURLs from FederatedCode\n\nSigned-off-by: AboutCode Automation <automation@aboutcode.org>")" || exit 0
+          git push
