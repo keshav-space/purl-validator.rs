@@ -10,19 +10,11 @@ See https://aboutcode.org for more information about nexB OSS projects.
 */
 
 use fst::SetBuilder;
-use std::fs::File;
+use std::fs::{File, read_dir};
 use std::io::{BufRead, BufReader};
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
-use std::io::Write;
-
-fn main() {
-    let input_file = Path::new("fst_builder/data/purls.txt");
-    let output_file = Path::new("purls.fst");
-
-    let file = File::create(output_file).expect("Cannot create FST file");
-    let mut builder = SetBuilder::new(file).expect("Failed to create FST builder");
-
+fn insert_purls(input_file: &Path, builder: &mut SetBuilder<File>) -> usize {
     let f = File::open(input_file).expect("Cannot open input file");
     let reader = BufReader::new(f);
 
@@ -33,17 +25,43 @@ fn main() {
         .collect();
 
     lines.sort();
+    let count = lines.len();
 
-    let sorted_file = Path::new("fst_builder/data/purls.txt");
-    let mut sorted_f = File::create(sorted_file).expect("Cannot create sorted file");
-    for line in &lines {
-        writeln!(sorted_f, "{}", line).expect("Failed to write line");
-    }
-
+    println!("Insert PURLs from {:?} in FST", input_file);
     for line in lines {
         builder.insert(&line).unwrap();
     }
 
+    count
+}
+
+fn get_txt_files(dir: &Path) -> Vec<PathBuf> {
+    let mut files: Vec<PathBuf> = read_dir(dir)
+        .expect("Cannot read directory")
+        .map(|entry| entry.expect("Invalid directory entry").path())
+        .filter(|path| path.is_file() && path.extension().and_then(|e| e.to_str()) == Some("txt"))
+        .collect();
+
+    files.sort();
+
+    files
+}
+
+fn main() {
+    let input_dir = Path::new("fst_builder/data");
+    let output_file = Path::new("purls.fst");
+    let mut total_purls: usize = 0;
+
+    let file = File::create(output_file).expect("Cannot create FST file");
+    let mut builder = SetBuilder::new(file).expect("Failed to create FST builder");
+
+    let input_files = get_txt_files(input_dir);
+
+    for input_file in input_files {
+        total_purls += insert_purls(&input_file, &mut builder);
+    }
+
     builder.finish().expect("Failed to finish FST");
+    println!("FST generated with {} base PackageURLs", total_purls);
     println!("FST generated at {:?}", output_file);
 }
