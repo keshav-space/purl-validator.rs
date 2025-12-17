@@ -42,7 +42,7 @@ jobs:
       - name: Extract base purl from purls.yml
         run: |
           cd ../repos
-          find . -type f -name "purls.yml" -exec sed -n '1{ s/^- *//; s/@.*//; p }' {} \; \
+          find . -type f -name "purls.yml" -exec sed -n '1{ s/^- *//; s/@.*//; p }' {} \; | sort \
           >  "${{ inputs.ecosystem }}.txt"
 
       - name: Checkout repository
