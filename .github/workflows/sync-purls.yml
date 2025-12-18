@@ -47,7 +47,9 @@ jobs:
         run: cargo install cargo-edit
 
       - name: Regenerate FST
-        run: make build-fst
+        run: |-
+          git pull
+          make build-fst
       
       - name: If file change then do below step, bum version, add chenagelog, add tag
         id: regen_fst
