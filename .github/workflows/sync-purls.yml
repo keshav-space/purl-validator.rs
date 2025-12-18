@@ -15,7 +15,7 @@ jobs:
       matrix:
         include:
           # - ecosystem: apk
-          - ecosystem: cargo
+          # - ecosystem: cargo
           # - ecosystem: composer
           # - ecosystem: conan
           # - ecosystem: cpan
@@ -25,7 +25,7 @@ jobs:
           # - ecosystem: npm
           # - ecosystem: nuget
           # - ecosystem: pypi
-          # - ecosystem: swift
+          - ecosystem: swift
 
     uses: ./.github/workflows/collect-purls_template.yml
     with:
@@ -93,9 +93,9 @@ jobs:
       
       - name: Push tag
         if: steps.regen_fst.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.TAG_TOKEN }}
         run: |-
           # Push tag
           git tag -a "v${{ steps.bump.outputs.new_version }}" -m "Release v${{ steps.bump.outputs.new_version }}"
           git push origin "v${{ steps.bump.outputs.new_version }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.TAG_TOKEN }}
