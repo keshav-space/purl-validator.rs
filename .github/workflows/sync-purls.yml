@@ -11,23 +11,89 @@ permissions:
 jobs:
   collect-purls:
     strategy:
-      max-parallel: 4
+      max-parallel: 1
       matrix:
         include:
-          - ecosystem: apk
-          - ecosystem: cargo
-          - ecosystem: composer
-          - ecosystem: conan
-          - ecosystem: cpan
-          - ecosystem: cran
-          - ecosystem: debain
-          - ecosystem: maven
-          - ecosystem: npm
-          - ecosystem: nuget
-          - ecosystem: pypi
+          # - ecosystem: apk
+          # - ecosystem: cargo
+          # - ecosystem: composer
+          # - ecosystem: conan
+          # - ecosystem: cpan
+          # - ecosystem: cran
+          # - ecosystem: debain
+          # - ecosystem: maven
+          # - ecosystem: npm
+          # - ecosystem: nuget
+          # - ecosystem: pypi
           - ecosystem: swift
 
     uses: ./.github/workflows/collect-purls_template.yml
     with:
       ecosystem: ${{ matrix.ecosystem }}
       path: "fst_builder/data/${{ matrix.ecosystem }}.txt"
+
+  regen-fst-and-release:
+    name: Regenerate FST and create release using new FST
+    needs: collect-purls
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-edit
+        run: cargo install cargo-edit
+
+      - name: Regenerate FST
+        run: make build-fst
+      
+      - name: If file change then do below step, bum version, add chenagelog, add tag
+        id: regen_fst
+        run: |-
+          git diff --name-only | grep -q 'purls.fst' && echo "changed=true" >> $GITHUB_OUTPUT \
+          || echo "changed=false" >> $GITHUB_OUTPUT
+
+          # Commit latest FST
+          git config user.name "AboutCode Automation"
+          git config user.email "automation@aboutcode.org"
+          git add purls.fst
+          git commit -m "$(echo -e "Regenerate FST using latest PURLs\n\nSigned-off-by: AboutCode Automation <automation@aboutcode.org>")" || exit 0
+          git push
+
+      - name: Bump minor version
+        if: steps.regen_fst.outputs.changed == 'true'
+        run: |-
+          output=$(cargo set-version --bump minor)
+          new_version=$(echo "$output" | awk '{print $NF}')
+
+          echo "new_version=$new_version" >> $GITHUB_ENV
+
+      - name: Add Changelog
+        if: steps.regen_fst.outputs.changed == 'true'
+        run: |-
+          # Add Changelog
+          today=$(date +%Y-%m-%d)
+          awk -v ver="${{ env.new_version }}" -v date="$today" '
+          NR==1{
+            print "# Changelog\n\n## v" ver " (" date ")\n\n - Update FST with latest PURLs"
+            next
+          }1' CHANGELOG.md > .tmp.CHANGELOG.md && mv .tmp.CHANGELOG.md CHANGELOG.md
+      
+      - name: Commit Changelog and Lock files
+        if: steps.regen_fst.outputs.changed == 'true'
+        run: |-
+          # Commit Changelog and Lock files
+          git config user.name "AboutCode Automation"
+          git config user.email "automation@aboutcode.org"
+          git add -A
+          git commit -m "$(echo -e "Bump version for v${{ env.new_version }} release\n\nSigned-off-by: AboutCode Automation <automation@aboutcode.org>")" || exit 0
+          git push
+      
+      - name: Push tag
+        if: steps.regen_fst.outputs.changed == 'true'
+        run: |-
+          # Push tag
+          git tag -a "v${{ env.new_version }}" -m "Release v${{ env.new_version }}"
+          git push origin "v${{ env.new_version }}"
