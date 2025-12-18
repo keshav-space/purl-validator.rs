@@ -6078,6 +6078,7 @@ pkg:swift/github.com/kylef/PathKit
 pkg:swift/github.com/kylef/URITemplate.swift
 pkg:swift/github.com/kylef/spectre
 pkg:swift/github.com/kylehickinson/swiftui-webview
+pkg:swift/github.com/kylehowells/swift-justhtml
 pkg:swift/github.com/kylehughes/PersistentKeyValueKit
 pkg:swift/github.com/kylehughes/RomanNumeralKit
 pkg:swift/github.com/kylehughes/URLQueryItemCoder
@@ -7619,6 +7620,7 @@ pkg:swift/github.com/pspdfkit/instant-sp
 pkg:swift/github.com/pspdfkit/pspdfkit-sp
 pkg:swift/github.com/pspdfkit/pspdfkitocr-sp
 pkg:swift/github.com/psturm-swift/publisher-factory
+pkg:swift/github.com/ptoffy/bcrypt
 pkg:swift/github.com/ptoffy/swift-bcrypt
 pkg:swift/github.com/ptrkstr/ACDD-Swift
 pkg:swift/github.com/ptrkstr/APIKeyMiddleware
