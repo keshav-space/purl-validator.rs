@@ -16,8 +16,8 @@ jobs:
         include:
           # - ecosystem: apk
           # - ecosystem: cargo
-          # - ecosystem: composer
-          - ecosystem: conan
+          - ecosystem: composer
+          # - ecosystem: conan
           # - ecosystem: cpan
           # - ecosystem: cran
           # - ecosystem: debain
@@ -65,7 +65,7 @@ jobs:
         id: bump
         if: steps.regen_fst.outputs.changed == 'true'
         run: |-
-          output=$(cargo set-version --bump minor)
+          output=$(cargo set-version --bump minor 2>&1)
           new_version=$(echo "$output" | awk '{print $NF}')
 
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
