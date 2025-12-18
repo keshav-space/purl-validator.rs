@@ -15,8 +15,8 @@ jobs:
       matrix:
         include:
           # - ecosystem: apk
-          # - ecosystem: cargo
-          - ecosystem: composer
+          - ecosystem: cargo
+          # - ecosystem: composer
           # - ecosystem: conan
           # - ecosystem: cpan
           # - ecosystem: cran
@@ -97,3 +97,5 @@ jobs:
           # Push tag
           git tag -a "v${{ steps.bump.outputs.new_version }}" -m "Release v${{ steps.bump.outputs.new_version }}"
           git push origin "v${{ steps.bump.outputs.new_version }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.TAG_TOKEN }}
