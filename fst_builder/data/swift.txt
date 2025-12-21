@@ -1726,6 +1726,7 @@ pkg:swift/github.com/OliverLetterer/LazyNavigationLink
 pkg:swift/github.com/OlofT/swift-nio-imap
 pkg:swift/github.com/OneAfternoon/Ward
 pkg:swift/github.com/OneSignal/OneSignal-XCFramework
+pkg:swift/github.com/OneSignal/OneSignal-iOS-SDK
 pkg:swift/github.com/Oops-AB/swedish-pnr
 pkg:swift/github.com/OpenCombine/OpenCombine
 pkg:swift/github.com/OpenDive/OpenAIKit
@@ -2258,6 +2259,7 @@ pkg:swift/github.com/StewartLynch/XcodeProjectRenamer
 pkg:swift/github.com/StreamUI/StreamUI.swift
 pkg:swift/github.com/Stv-X/NSIcon
 pkg:swift/github.com/StyleShoots/CircuitBreaker
+pkg:swift/github.com/Subito-it/SBTUITestTunnel
 pkg:swift/github.com/SudhirGadhvi/SwiftCache-SDK
 pkg:swift/github.com/SumSubstance/IdensicMobileSDK-iOS
 pkg:swift/github.com/SumSubstance/IdensicMobileSDK-iOS-Core
@@ -6512,6 +6514,7 @@ pkg:swift/github.com/mattt/euler
 pkg:swift/github.com/mattt/llama.swift
 pkg:swift/github.com/mattt/ollama-swift
 pkg:swift/github.com/mattt/olleh
+pkg:swift/github.com/mattt/swift-toml
 pkg:swift/github.com/matvdg/CurrencyKeyboardView
 pkg:swift/github.com/matvdg/CurrencyTextFieldKit
 pkg:swift/github.com/maustinstar/swiftui-drawer
@@ -6739,6 +6742,7 @@ pkg:swift/github.com/mitsuharu/ReSwift-Saga
 pkg:swift/github.com/mitsuse/la
 pkg:swift/github.com/mitsuse/swim
 pkg:swift/github.com/miximka/MimeParser
+pkg:swift/github.com/mixpanel/mixpanel-ios-session-replay-package
 pkg:swift/github.com/mixpanel/mixpanel-swift
 pkg:swift/github.com/miyass/VHProgressBar
 pkg:swift/github.com/mjarvis/Exhibition
@@ -7700,6 +7704,7 @@ pkg:swift/github.com/qualtrics/qualtrics-dxa-ios
 pkg:swift/github.com/quanshousio/ToastUI
 pkg:swift/github.com/quantumOrange/CubicSpline
 pkg:swift/github.com/quanvo87/GroupWork
+pkg:swift/github.com/quassum/SwiftUI-Tooltip
 pkg:swift/github.com/quephird/ScintillaLib
 pkg:swift/github.com/querykit/querykit-cli
 pkg:swift/github.com/quickpose/quickpose-ios-sdk
@@ -8572,6 +8577,7 @@ pkg:swift/github.com/stefc/xprocs
 pkg:swift/github.com/steipete/Commander
 pkg:swift/github.com/steipete/Demark
 pkg:swift/github.com/steipete/InterposeKit
+pkg:swift/github.com/steipete/Swiftdansi
 pkg:swift/github.com/steipete/TauTUI
 pkg:swift/github.com/stencilproject/Stencil
 pkg:swift/github.com/stendahls/Taskig
@@ -9283,6 +9289,8 @@ pkg:swift/github.com/username0x0a/SwiftyDijkstra
 pkg:swift/github.com/utahiosmac/Marshal
 pkg:swift/github.com/utmapp/VisionKeyboardKit
 pkg:swift/github.com/uuid25/swift-uuid25
+pkg:swift/github.com/uxcam/uxcam-ios-sdk
+pkg:swift/github.com/uxcam/uxcam-ios-swiftui
 pkg:swift/github.com/uxfb/uxfbsdk-ios
 pkg:swift/github.com/v57/scrypt.c
 pkg:swift/github.com/v57/secp256k1.c
