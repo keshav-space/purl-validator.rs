@@ -2906,6 +2906,7 @@ pkg:swift/github.com/alexey1312/Laner
 pkg:swift/github.com/alexey1312/SnapshotTestingHEIC
 pkg:swift/github.com/alexey1312/SnapshotTestingWebP
 pkg:swift/github.com/alexey1312/TOONDecoder
+pkg:swift/github.com/alexey1312/swift-resvg
 pkg:swift/github.com/alexeyxo/protobuf-swift
 pkg:swift/github.com/alexhunsley/patchouli-core
 pkg:swift/github.com/alexhunsley/patchouli-jsonpatch
