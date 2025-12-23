@@ -390,6 +390,7 @@ pkg:swift/github.com/Balancingrock/SwifterSockets
 pkg:swift/github.com/Balancingrock/Swiftfire
 pkg:swift/github.com/Balancingrock/vjson
 pkg:swift/github.com/BalestraPatrick/Stryng
+pkg:swift/github.com/BarredEwe/LiquidGlass
 pkg:swift/github.com/BarredEwe/MoyaNetworkClient
 pkg:swift/github.com/BarredEwe/Prefire
 pkg:swift/github.com/BarredEwe/WaterStates
@@ -5469,6 +5470,7 @@ pkg:swift/github.com/indextrown/ScaleKit
 pkg:swift/github.com/infinitepower18/EmailClientHelper
 pkg:swift/github.com/influxdata/influxdb-client-swift
 pkg:swift/github.com/inket/FullDiskAccess
+pkg:swift/github.com/inner-active/DTExchangeSDK-iOS-SPM
 pkg:swift/github.com/innocarpe/TabNavigable
 pkg:swift/github.com/innovatrics/dot-ios-sdk-spm
 pkg:swift/github.com/inseven/diligence
@@ -5478,6 +5480,7 @@ pkg:swift/github.com/insidegui/MacPreviewUtils
 pkg:swift/github.com/insidegui/MultipeerKit
 pkg:swift/github.com/insidegui/ocrit
 pkg:swift/github.com/inso-/URLScission
+pkg:swift/github.com/inso1337/URLScission
 pkg:swift/github.com/instacart/Nantes
 pkg:swift/github.com/instana/iOSAgent
 pkg:swift/github.com/insub4067/ArchitectureVam
