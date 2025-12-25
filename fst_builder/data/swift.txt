@@ -3803,6 +3803,7 @@ pkg:swift/github.com/codefiesta/OAuthKit
 pkg:swift/github.com/codeinversion/sensors-swift
 pkg:swift/github.com/codeinversion/sensors-swift-trainers
 pkg:swift/github.com/codewinsdotcom/PostgresClientKit
+pkg:swift/github.com/coenttb/swift-async-algorithms-fork
 pkg:swift/github.com/coenttb/swift-builders
 pkg:swift/github.com/coenttb/swift-css
 pkg:swift/github.com/coenttb/swift-css-html-rendering
@@ -6930,6 +6931,7 @@ pkg:swift/github.com/n26/bob
 pkg:swift/github.com/n3d1117/ExpandableText
 pkg:swift/github.com/n3d1117/Routing
 pkg:swift/github.com/n4226/swiftrestclient
+pkg:swift/github.com/naaiyy/convex-swift
 pkg:swift/github.com/nabla/nabla-ios
 pkg:swift/github.com/naftaly/Footprint
 pkg:swift/github.com/naftaly/Threadcrumb
@@ -8126,6 +8128,8 @@ pkg:swift/github.com/schwa/ApproximateEquality
 pkg:swift/github.com/schwa/Compute
 pkg:swift/github.com/schwa/CoreGraphicsGeometrySupport
 pkg:swift/github.com/schwa/Everything
+pkg:swift/github.com/schwa/GeometryLite3D
+pkg:swift/github.com/schwa/GoldenImage
 pkg:swift/github.com/schwa/MetalCompilerPlugin
 pkg:swift/github.com/schwa/RedisConnection
 pkg:swift/github.com/schwa/SIMD-Support
@@ -8300,6 +8304,7 @@ pkg:swift/github.com/simonbs/ConfettiKit
 pkg:swift/github.com/simonbs/KeyboardToolbar
 pkg:swift/github.com/simonbs/Prettier
 pkg:swift/github.com/simonbs/Runestone
+pkg:swift/github.com/simonbs/SFSymbols
 pkg:swift/github.com/simonbs/TextDiffing
 pkg:swift/github.com/simonbs/dependency-graph
 pkg:swift/github.com/simonbs/tree-sitter
@@ -8726,9 +8731,13 @@ pkg:swift/github.com/swift-squirrel/squirrel-connector
 pkg:swift/github.com/swift-squirrel/squirrel-toolbox
 pkg:swift/github.com/swift-squirrel/squirrelconfig
 pkg:swift/github.com/swift-squirrel/squirreljson
+pkg:swift/github.com/swift-standards/swift-color-standard
 pkg:swift/github.com/swift-standards/swift-css-standard
 pkg:swift/github.com/swift-standards/swift-cssom
 pkg:swift/github.com/swift-standards/swift-domain-standard
+pkg:swift/github.com/swift-standards/swift-html-standard
+pkg:swift/github.com/swift-standards/swift-iec-61966
+pkg:swift/github.com/swift-standards/swift-ieee-754
 pkg:swift/github.com/swift-standards/swift-incits-4-1986
 pkg:swift/github.com/swift-standards/swift-iso-9899
 pkg:swift/github.com/swift-standards/swift-numeric-formatting-standard
@@ -9656,6 +9665,7 @@ pkg:swift/github.com/wrkstrm/wrkstrm-performance
 pkg:swift/github.com/wti/SwiftDjot
 pkg:swift/github.com/wti/SwiftPolymurHash
 pkg:swift/github.com/wtpalexander/audi-connect
+pkg:swift/github.com/wtpalexander/volvo-cars-api
 pkg:swift/github.com/wtw-software/ios-UTMConversion
 pkg:swift/github.com/wulkano/Aperture
 pkg:swift/github.com/wultra/passphrase-meter
