@@ -8739,8 +8739,16 @@ pkg:swift/github.com/swift-standards/swift-html-standard
 pkg:swift/github.com/swift-standards/swift-iec-61966
 pkg:swift/github.com/swift-standards/swift-ieee-754
 pkg:swift/github.com/swift-standards/swift-incits-4-1986
+pkg:swift/github.com/swift-standards/swift-iso-8601
 pkg:swift/github.com/swift-standards/swift-iso-9899
 pkg:swift/github.com/swift-standards/swift-numeric-formatting-standard
+pkg:swift/github.com/swift-standards/swift-rfc-1035
+pkg:swift/github.com/swift-standards/swift-rfc-1123
+pkg:swift/github.com/swift-standards/swift-rfc-2045
+pkg:swift/github.com/swift-standards/swift-rfc-3492
+pkg:swift/github.com/swift-standards/swift-rfc-3987
+pkg:swift/github.com/swift-standards/swift-rfc-4291
+pkg:swift/github.com/swift-standards/swift-rfc-4648
 pkg:swift/github.com/swift-standards/swift-standards
 pkg:swift/github.com/swift-standards/swift-svg-standard
 pkg:swift/github.com/swift-standards/swift-w3c-svg
